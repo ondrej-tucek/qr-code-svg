@@ -4,7 +4,7 @@ defmodule QrCodeSvg.MixProject do
   def project do
     [
       app: :qr_code_svg,
-      version: "1.0.3",
+      version: "1.0.2",
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
       description: "Library for generating QR code to SVG format.",
@@ -31,7 +31,7 @@ defmodule QrCodeSvg.MixProject do
   end
 
   defp qrcode_dep() do
-    {:qrcode, "~> 0.1.0", github: "sunboshan/qrcode"}
+    {:qrcode, git: "https://github.com/sunboshan/qrcode.git", tag: nil}
   end
 
   defp package do
