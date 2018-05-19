@@ -11,8 +11,8 @@ by adding `qr_code_svg` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    # {:qr_code_svg, "~> "1.0.6"} # This does not work because sunboshan/qrcode is not at hex.pm
-    {:qr_code_svg, git: "https://github.com/ondrej-tucek/qr-code-svg", tag: "v1.0.5"}
+    # {:qr_code_svg, "~> 1.0.6"} # This does not work because sunboshan/qrcode is not at hex.pm
+    {:qr_code_svg, git: "https://github.com/ondrej-tucek/qr-code-svg", tag: "v1.0.6"}
   ]
 end
 ```
