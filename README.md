@@ -53,6 +53,7 @@ QrCodeSvg.generate(
 <p align="center"><img src="https://github.com/ondrej-tucek/qr-code-svg/blob/master/images/qrcode_color.png" /></p>
 
 Notes:
+* svg file is created in root directory
 * thanks to `scale` in `%Settings{}` we can change a size of generated svg
 * QR encoding string is bounded above by 154 (which is byte_size of string) and ECC Level is only L
 * for convert our svg examples we used [mogrify](https://github.com/route/mogrify) utility in this a way:
