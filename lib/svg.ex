@@ -23,9 +23,16 @@ defmodule Svg do
             rank_matrix: nil,
             qr_matrix: nil
 
+  def create(coding_string) do
+    create(
+        coding_string,
+        %Settings{}
+      )
+  end
+
   def create(
         coding_string,
-        %Settings{background_color: bg, qrcode_color: qc, scale: scale} = settings
+        %Settings{background_color: bg, qrcode_color: qc, scale: scale}
       ) do
 
     coding_string
@@ -47,7 +54,7 @@ defmodule Svg do
 
   defp set_qr_matrix(
          coding_string,
-         %__MODULE__{qr_matrix: matrix, rank_matrix: rank} = svg
+         %__MODULE__{} = svg
        ) do
     case get_matrix_qr(coding_string) do
       {:ok, matrix} -> {:ok, %{svg | qr_matrix: matrix, rank_matrix: length(matrix)}}
@@ -73,11 +80,9 @@ defmodule Svg do
           %__MODULE__{
             xmlns: xmlns,
             xlink: xlink,
-            width: w,
-            height: h,
             body: body,
             rank_matrix: rank_matrix
-          } = svg},
+          }},
          scale,
          bg
        ) do
@@ -94,7 +99,7 @@ defmodule Svg do
     {:ok, svg}
   end
 
-  defp construct_svg(err, _bg) do
+  defp construct_svg(err, _scale, _bg) do
     err
   end
 
@@ -120,7 +125,7 @@ defmodule Svg do
     {:error, "You have to put coding string!"}
   end
 
-  defp get_matrix_qr(coding_string) do
+  defp get_matrix_qr(_coding_string) do
     {:error, "Binary too long."}
   end
 
