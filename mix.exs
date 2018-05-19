@@ -7,7 +7,9 @@ defmodule QrCodeSvg.MixProject do
       version: "1.0.0",
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      desciption: "Library for generating QR code to SVG format.",
+      deps: deps(),
+      package: package(),
     ]
   end
 
@@ -30,5 +32,17 @@ defmodule QrCodeSvg.MixProject do
 
   defp qrcode_dep() do
     {:qrcode, git: "git@github.com:sunboshan/qrcode.git"}
+  end
+
+  defp package do
+    [
+      maintainers: [
+        "Ondrej Tucek <ondrej.tucek@gmail.com>",
+      ],
+      licenses: ["BSD"],
+      links: %{
+        "GitHub" => "https://github.com/ondrej-tucek/qr-code-svg",
+      }
+    ]
   end
 end
