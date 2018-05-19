@@ -11,7 +11,7 @@ by adding `qr_code_svg` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:qr_code_svg, "~> 1.0.3"}
+    {:qr_code_svg, "~> 1.0.4"}
   ]
 end
 ```
