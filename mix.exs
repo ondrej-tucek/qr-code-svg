@@ -31,7 +31,7 @@ defmodule QrCodeSvg.MixProject do
   end
 
   defp qrcode_dep() do
-    {:qrcode, git: "git@github.com:sunboshan/qrcode.git"}
+    {:qrcode, "~> 0.1.0", github: "sunboshan/qrcode"}
   end
 
   defp package do

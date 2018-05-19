@@ -1,5 +1,5 @@
 %{
   "mogrify": {:hex, :mogrify, "0.6.1", "de1b527514f2d95a7bbe9642eb556061afb337e220cf97adbf3a4e6438ed70af", [:mix], [], "hexpm"},
-  "qrcode": {:git, "git@github.com:sunboshan/qrcode.git", "d85827ba43d18efe84b3ad23734658093f8f294c", []},
+  "qrcode": {:git, "https://github.com/sunboshan/qrcode.git", "d85827ba43d18efe84b3ad23734658093f8f294c", []},
   "xml_builder": {:hex, :xml_builder, "2.1.0", "c249d5339427c13cae11e9d9d0e8b40d25d228b9ecc54029f24017385e60280b", [:mix], [], "hexpm"},
 }
