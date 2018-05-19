@@ -7,7 +7,7 @@ defmodule QrCodeSvg.MixProject do
       version: "1.0.1",
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
-      desciption: "Library for generating QR code to SVG format.",
+      description: "Library for generating QR code to SVG format.",
       deps: deps(),
       package: package(),
     ]
