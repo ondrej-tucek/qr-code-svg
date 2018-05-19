@@ -28,7 +28,7 @@ Using this library is simple, just call function:
 ```haskell
 QrCodeSvg.generate("Put your string here...", "qr_code.svg")
 ```
-<p align="center"><img src="https://github.com/ondrej-tucek/qr-code-svg/blob/master/images/qrcode.png" /></p>
+<p align="center"><img src="https://github.com/ondrej-tucek/qr-code-svg/blob/master/images/qrcode_color.png" /></p>
 
 
 Of course, there are a couple settings for creating svg:
