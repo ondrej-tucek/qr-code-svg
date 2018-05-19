@@ -233,7 +233,7 @@ defmodule QrCodeSvgTest do
   """
 
   test "should generate svg" do
-    {:ok, result} = Svg.create("test_string", %Settings{})
+    {:ok, result} = Svg.create("test_string", %SvgSettings{})
 
     assert clean(result) == clean(@svg)
   end

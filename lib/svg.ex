@@ -3,8 +3,6 @@ defmodule Svg do
   Svg structure and helper functions.
   """
 
-  alias Settings
-
   @type t :: %__MODULE__{
           xmlns: String.t(),
           xlink: String.t(),
@@ -26,13 +24,13 @@ defmodule Svg do
   def create(coding_string) do
     create(
         coding_string,
-        %Settings{}
+        %SvgSettings{}
       )
   end
 
   def create(
         coding_string,
-        %Settings{background_color: bg, qrcode_color: qc, scale: scale}
+        %SvgSettings{background_color: bg, qrcode_color: qc, scale: scale}
       ) do
 
     coding_string

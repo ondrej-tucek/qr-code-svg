@@ -47,7 +47,7 @@ For example, if you want change color of QR code, it's enough to write
 QrCodeSvg.generate(
     "Put your string here...",
     "qr_code.svg",
-    %Settings{qrcode_color: {17, 170, 136}}
+    %SvgSettings{qrcode_color: {17, 170, 136}}
   )
 ```
 
@@ -55,7 +55,7 @@ QrCodeSvg.generate(
 
 Notes:
 * svg file is created in root directory
-* thanks to `scale` in `%Settings{}` we can change a size of generated svg
+* thanks to `scale` in `%SvgSettings{}` we can change a size of generated svg
 * QR encoding string is bounded above by 154 (which is byte_size of string) and ECC Level is only L
 * for convert our svg examples we used [mogrify](https://github.com/route/mogrify) utility in this a way:
 ```haskell

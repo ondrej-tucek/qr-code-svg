@@ -1,4 +1,4 @@
-defmodule Settings do
+defmodule SvgSettings do
   @moduledoc """
   Settings structure.
   """
