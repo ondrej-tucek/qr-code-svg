@@ -54,6 +54,7 @@ defmodule Svg do
          coding_string,
          %__MODULE__{} = svg
        ) do
+
     case get_matrix_qr(coding_string) do
       {:ok, matrix} -> {:ok, %{svg | qr_matrix: matrix, rank_matrix: length(matrix)}}
       {:error, msg} -> {:error, msg}
@@ -84,6 +85,7 @@ defmodule Svg do
          scale,
          bg
        ) do
+
     svg =
       {:svg,
        %{

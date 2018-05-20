@@ -1,6 +1,6 @@
 # QrCodeSvg
 
-This library generates QR code to SVG format. It is based on Sunboshan's [library](https://github.com/sunboshan/qrcode). Another inspiration came from beautiful Pete Corey's [article](http://www.petecorey.com/blog/2017/02/13/build-your-own-code-poster-with-elixir/).
+This library generates QR code to SVG format. It is based on Sunboshan's [library](https://github.com/sunboshan/qrcode) and another inspiration came from beautiful Pete Corey's [article](http://www.petecorey.com/blog/2017/02/13/build-your-own-code-poster-with-elixir/).
 
 
 ## Installation
@@ -22,7 +22,6 @@ and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at [https://hexdocs.pm/qr_code_svg](https://hexdocs.pm/qr_code_svg).
 
 
-
 ## Usage
 Using this library is simple, just call function:
 
@@ -36,12 +35,12 @@ Of course, there are a couple settings for creating svg:
 
 | Setting  | Type   | Default value | Description |
 | ---------| -------------| ----------- | ----- |
-| scale    | float  | 10  | scale for svg QR code |
+| scale    | integer  | 10  | scale for svg QR code |
 | background_color  | [ string \| {r, g, b} ] | "#ffffff" | background color of svg |
 | qrcode_color      | [ string \| {r, g, b} ] | "#000000" | color of QR code |
 
 
-For example, if you want change color of QR code, it's enough to write
+For example, if you want to change color of QR code, it's enough to write
 
 ```haskell
 QrCodeSvg.generate(
@@ -53,14 +52,19 @@ QrCodeSvg.generate(
 
 <p align="center"><img src="https://github.com/ondrej-tucek/qr-code-svg/blob/master/images/qrcode_color.png" /></p>
 
-Notes:
+
+## Notes:
 * svg file is created in root directory
 * thanks to `scale` in `%SvgSettings{}` we can change a size of generated svg
-* QR encoding string is bounded above by 154 (which is byte_size of string) and ECC Level is only L
-* for convert our svg examples we used [mogrify](https://github.com/route/mogrify) utility in this a way:
+* byte_size of QR encoding string is bounded above by 154
+* ECC Level of QR is only L, see Sunboshan's [library](https://github.com/sunboshan/qrcode)
+* [mogrify](https://github.com/route/mogrify) utility was used for convert svg examples to png files in this a way:
+
 ```haskell
-image =
-  Mogrify.open("qr_code.svg")
+import Mogrify
+
+"qr_code.svg"
+  |> Mogrify.open()
   |> format("png")
   |> save(path: "qr_code.png")
 ```
