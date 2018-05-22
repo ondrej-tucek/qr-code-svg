@@ -1,5 +1,10 @@
 defmodule QrCodeSvg do
-  alias Svg
+  alias QrCodeSvg.Svg
+  alias QrCodeSvg.SvgSettings
+
+  defdelegate create(str), to: Svg
+  defdelegate create(str, svg_settings), to: Svg
+  defdelegate save(result, filename), to: Svg
 
   def generate(coding_string, svg_name, model \\ %SvgSettings{}) do
     coding_string

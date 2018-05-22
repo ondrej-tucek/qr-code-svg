@@ -1,7 +1,9 @@
-defmodule Svg do
+defmodule QrCodeSvg.Svg do
   @moduledoc """
   Svg structure and helper functions.
   """
+
+  alias QrCodeSvg.SvgSettings
 
   @type ok(value) :: {:ok, value}
   @type error(err) :: {:error, err}
@@ -39,7 +41,7 @@ defmodule Svg do
         %SvgSettings{background_color: bg, qrcode_color: qc, scale: scale}
       ) do
     coding_string
-    |> set_qr_matrix(%Svg{})
+    |> set_qr_matrix(%__MODULE__{})
     |> construct_body(scale, qc)
     |> construct_svg(scale, bg)
   end

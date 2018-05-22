@@ -1,4 +1,4 @@
-defmodule SvgSettings do
+defmodule QrCodeSvg.SvgSettings do
   @moduledoc """
   Settings structure.
   """
