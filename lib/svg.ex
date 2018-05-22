@@ -3,14 +3,20 @@ defmodule Svg do
   Svg structure and helper functions.
   """
 
+  @type ok(value) :: {:ok, value}
+  @type error(err) :: {:error, err}
+  @type result(error, value) :: error(error) | ok(value)
+  @type svg_string :: String.t()
+  @type maybe(value) :: value | nil
+
   @type t :: %__MODULE__{
           xmlns: String.t(),
           xlink: String.t(),
-          width: integer,
-          height: integer,
+          width: maybe(integer),
+          height: maybe(integer),
           body: String.t(),
-          rank_matrix: integer,
-          qr_matrix: list(list(integer))
+          rank_matrix: maybe(integer),
+          qr_matrix: maybe(list(list(integer)))
         }
 
   defstruct xmlns: "http://www.w3.org/2000/svg",
@@ -23,22 +29,23 @@ defmodule Svg do
 
   def create(coding_string) do
     create(
-        coding_string,
-        %SvgSettings{}
-      )
+      coding_string,
+      %SvgSettings{}
+    )
   end
 
   def create(
         coding_string,
         %SvgSettings{background_color: bg, qrcode_color: qc, scale: scale}
       ) do
-
     coding_string
-      |> set_qr_matrix(%Svg{})
-      |> construct_body(scale, qc)
-      |> construct_svg(scale, bg)
+    |> set_qr_matrix(%Svg{})
+    |> construct_body(scale, qc)
+    |> construct_svg(scale, bg)
   end
 
+  @spec save(result(String.t(), svg_string), Path.t()) ::
+          :ok | error(File.posix() | :badarg | :terminated | String.t())
   def save({:ok, svg}, svg_name) do
     {:ok, file} = File.open(svg_name, [:write])
 
@@ -46,7 +53,7 @@ defmodule Svg do
     File.close(file)
   end
 
-  def save(err) do
+  def save(err, _svg_name) do
     err
   end
 
@@ -54,7 +61,6 @@ defmodule Svg do
          coding_string,
          %__MODULE__{} = svg
        ) do
-
     case get_matrix_qr(coding_string) do
       {:ok, matrix} -> {:ok, %{svg | qr_matrix: matrix, rank_matrix: length(matrix)}}
       {:error, msg} -> {:error, msg}
@@ -85,7 +91,6 @@ defmodule Svg do
          scale,
          bg
        ) do
-
     svg =
       {:svg,
        %{
