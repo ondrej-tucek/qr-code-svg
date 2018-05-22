@@ -2,7 +2,8 @@ defmodule QrCodeSvgTest do
   use ExUnit.Case
   doctest QrCodeSvg
 
-  alias Svg
+  alias QrCodeSvg.Svg
+  alias QrCodeSvg.SvgSettings
 
   @svg """
   <svg height="250" width="250" xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
