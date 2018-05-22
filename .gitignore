@@ -24,3 +24,6 @@ qr_code_svg-*.tar
 
 *.png
 *.svg
+tags
+.vimrc
+.projections.json
