@@ -33,11 +33,11 @@ QrCodeSvg.generate("Put your string here...", "qr_code.svg")
 
 Of course, there are a couple settings for creating svg:
 
-| Setting  | Type   | Default value | Description |
-| ---------| -------------| ----------- | ----- |
-| scale    | integer  | 10  | scale for svg QR code |
-| background_color  | [ string \| {r, g, b} ] | "#ffffff" | background color of svg |
-| qrcode_color      | [ string \| {r, g, b} ] | "#000000" | color of QR code |
+| Setting          | Type       | Default value | Description           |                         |
+|------------------|------------|---------------|-----------------------|-------------------------|
+| scale            | integer    | 10            | scale for svg QR code |                         |
+| background_color | [ string \ | {r, g, b} ]   | "#ffffff"             | background color of svg |
+| qrcode_color     | [ string \ | {r, g, b} ]   | "#000000"             | color of QR code        |
 
 
 For example, if you want to change color of QR code, it's enough to write
@@ -54,6 +54,7 @@ QrCodeSvg.generate(
 
 
 ## Notes:
+* `QRCode.Matrix` can contain a couple of nil elements for some input string. I don't know if this behaviour is correct or not. The questions were placed to [author](https://github.com/sunboshan/qrcode/issues/2) of qrcode library and in [elixirforum](https://elixirforum.com/t/qrcode-implement-qr-code-in-elixir/8102/16). For now, the 'nil' values are not considered in svg. It means the 'nil's will display as squares of white color. And it seems that everything works fine. :relaxed:
 * svg file is created in root directory
 * thanks to `scale` in `%SvgSettings{}` we can change a size of generated svg
 * byte_size of QR encoding string is bounded above by 154
@@ -68,3 +69,7 @@ import Mogrify
   |> format("png")
   |> save(path: "qr_code.png")
 ```
+
+
+## License
+[![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)](https://github.com/ondrej-tucek/qr-code-svg/blob/master/LICENSE)
