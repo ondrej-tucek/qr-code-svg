@@ -143,6 +143,7 @@ defmodule QrCodeSvg.Svg do
       row
       |> Enum.with_index()
       |> Enum.reduce([], fn
+	{nil, _}, acc -> acc
         {0, _}, acc -> acc
         {1, j}, acc -> [{i, j} | acc]
       end)
