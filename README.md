@@ -1,3 +1,5 @@
+This library is DEPRECATED! Please use our new library [QRCode](https://github.com/iodevs/qr_code).
+
 # QrCodeSvg
 
 This library generates QR code to SVG format. It is based on Sunboshan's [library](https://github.com/sunboshan/qrcode) and another inspiration came from beautiful Pete Corey's [article](http://www.petecorey.com/blog/2017/02/13/build-your-own-code-poster-with-elixir/).
